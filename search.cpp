@@ -18,6 +18,7 @@ void search() {
 
 	cin >> menu;
 	cout << endl;
+	cin.ignore();
 
 	switch (menu) {
 	case 1: {
@@ -65,6 +66,7 @@ void searchName(string sName) {
 			break;
 		}
 	}
+	cout << endl;
 }
 
 void searchId(string sId) {
@@ -75,6 +77,7 @@ void searchId(string sId) {
 			break;
 		}
 	}
+	cout << endl;
 }
 
 void searchAdYear(string sYear) {
@@ -85,6 +88,7 @@ void searchAdYear(string sYear) {
 			break;
 		}
 	}
+	cout << endl;
 }
 
 void searchDepName(string sDepName) {
@@ -95,6 +99,7 @@ void searchDepName(string sDepName) {
 			break;
 		}
 	}
+	cout << endl;
 }
 
 void listAll() {

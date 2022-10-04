@@ -45,14 +45,14 @@ void insertion() {
 	}
 
 	// Birth Year Size üũ
-	if (birth.size() != 10) {
+	if (birth.size() != 4) {
 		cout << "'Birth Year' should be exactly 4 digits..\n\n";
 		return;
 	}
 
 	// Tel Size üũ
-	if (tel.size() != 10) {
-		cout << "'Tel' should have up to 12 digits..\n\n";
+	if (tel.size() != 11) {
+		cout << "'Tel' should have up to 11 digits..\n\n";
 		return;
 	}
 
