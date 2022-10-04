@@ -1,3 +1,5 @@
+/* Student Class Á¤ÀÇºÎ */
+
 #include <iostream>
 #include <string>
 
@@ -24,10 +26,12 @@ private:
 
 public:
 	/* Constructor */
+	Student();
 	Student(string, string, string, string, string);
 
 	/* Method */
 	void printStudentInfo();
+	void printDefault();
 
 	// Getter
 	string getName();

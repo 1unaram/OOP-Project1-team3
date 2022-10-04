@@ -1,4 +1,4 @@
-/* main header */
+/* main function header */
 
 // Include library
 #include <iostream>
@@ -15,4 +15,5 @@ using namespace std;
 // Function Prototype
 void printMenu();
 void insertion();
-void fileOpen();
+void fileRead();
+void search();

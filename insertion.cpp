@@ -1,4 +1,4 @@
-/* insertion.cpp */
+/* insertion function */
 
 #include "insertion_header.h"
 
@@ -12,24 +12,49 @@ void insertion() {
 
 	// Input Student info from user
 	string name;
-	cout << "Name: ";
+	cout << "Name ? ";
 	cin >> name;
 
 	string id;
-	cout << "Studnet ID(10 digits): ";
+	cout << "Studnet ID(10 digits) ? ";
 	cin >> id;
 
 	string birth;
-	cout << "Birth Year (4 digits): ";
+	cout << "Birth Year (4 digits) ? ";
 	cin >> birth;
 
 	string dept;
-	cout << "Department: ";
+	cout << "Departmen ?: ";
 	cin >> dept;
 
 	string tel;
-	cout << "Tel: ";
+	cout << "Tel ? ";
 	cin >> tel;
+
+
+	// Name Size 체크
+	if (name.size() > 15) {
+		cout << "'Name' should have up to 15 (English) characters..\n\n";
+		return;
+	}
+
+	// Student ID Size 체크
+	if (id.size() != 10) {
+		cout << "'Student ID' should be exactly 10 digits..\n\n";
+		return;
+	}
+
+	// Birth Year Size 체크
+	if (birth.size() != 10) {
+		cout << "'Birth Year' should be exactly 4 digits..\n\n";
+		return;
+	}
+
+	// Tel Size 체크
+	if (tel.size() != 10) {
+		cout << "'Tel' should have up to 12 digits..\n\n";
+		return;
+	}
 
 	// 공백 체크
 	if (name.size() == 0 || id.size() == 0) {

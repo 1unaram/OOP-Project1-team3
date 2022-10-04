@@ -1,4 +1,4 @@
-/* insertion header */
+/* insertion function header */
 
 #include <iostream>
 #include <fstream>

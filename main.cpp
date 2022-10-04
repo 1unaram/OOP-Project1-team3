@@ -1,8 +1,4 @@
-/*
-	학생 정보를 담고 있는 txt 파일 형식은 아래와 같음.
-
-	name,student_id,birth,dept,tel\n
-*/
+/* main.cpp */
 
 #include "main_header.h"
 
@@ -14,16 +10,17 @@ int main(int argc, char ** argv) {
 
 	filename = argv[1];
 
-	fileOpen();
+	fileRead();
 
 	printMenu();
 }
 
 void printMenu() {
 
-	int menu;
-
 	while (true) {
+
+		int menu;
+
 		cout << "1. Insertion" << endl;
 		cout << "2. Search" << endl;
 		cout << "3. Sorting Option" << endl;
@@ -38,7 +35,7 @@ void printMenu() {
 			insertion();
 			break;
 		case 2:
-			//search();
+			search();
 			break;
 		case 3:
 			//sortingOption();
@@ -50,10 +47,10 @@ void printMenu() {
 	}
 }
 
-void fileOpen() {
+void fileRead() {
 	
-	ifstream file;
-	file.open(filename);
+	fstream file;
+	file.open(filename, ios::in | ios::app);
 
 	// Success to open file
 	if (file.is_open()) {
