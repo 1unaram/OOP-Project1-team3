@@ -32,6 +32,7 @@ public:
 	/* Method */
 	void printStudentInfo();
 	void printDefault();
+	void printContainer();
 
 	// Getter
 	string getName();

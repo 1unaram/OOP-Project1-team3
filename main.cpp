@@ -17,10 +17,13 @@ int main(int argc, char ** argv) {
 
 void printMenu() {
 
+	cout << "\n\n<< Student Information Management System - Team#3 >>\n\n";
+
 	while (true) {
 
 		int menu;
 
+		cout << "[Main Menu]" << endl;
 		cout << "1. Insertion" << endl;
 		cout << "2. Search" << endl;
 		cout << "3. Sorting Option" << endl;
@@ -38,7 +41,7 @@ void printMenu() {
 			search();
 			break;
 		case 3:
-			//sortingOption();
+			sortingOption();
 			break;
 		case 4:
 			cout << "** Exit the program **" << endl;
@@ -47,6 +50,7 @@ void printMenu() {
 	}
 }
 
+// txt 파일을 읽어 studnets 벡터에 push
 void fileRead() {
 	
 	fstream file;
@@ -73,9 +77,15 @@ void fileRead() {
 			char tel[256];
 			file.getline(tel, 256);
 
+
 			// Push Student object
-			Student s(name, id, birth, dept, tel);
-			students.push_back(s);
+			Student newStudent(name, id, birth, dept, tel);
+
+			// End of file
+			string end(name);
+			if (end.size() == 0) break;
+
+			students.push_back(newStudent);
 		}
 		
 		file.close();

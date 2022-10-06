@@ -9,50 +9,50 @@ extern string filename;
 void insertion() {
 
 	cout << "[Insert Mode]" << endl;
+	cin.ignore();
 
 	// Input Student info from user
 	string name;
 	cout << "Name ? ";
-	cin >> name;
+	getline(cin, name);
 
 	string id;
 	cout << "Studnet ID(10 digits) ? ";
-	cin >> id;
+	getline(cin, id);
 
 	string birth;
 	cout << "Birth Year (4 digits) ? ";
-	cin >> birth;
+	getline(cin, birth);
 
 	string dept;
-	cout << "Departmen ?: ";
-	cin >> dept;
+	cout << "Department ?: ";
+	getline(cin, dept);
 
 	string tel;
 	cout << "Tel ? ";
-	cin >> tel;
-
+	getline(cin, tel);
 
 	// Name Size üũ
 	if (name.size() > 15) {
-		cout << "'Name' should have up to 15 (English) characters..\n\n";
+		cout << "Error: 'Name' should have up to 15 (English) characters..\n\n";
 		return;
 	}
 
 	// Student ID Size üũ
 	if (id.size() != 10) {
-		cout << "'Student ID' should be exactly 10 digits..\n\n";
+		cout << "Error: 'Student ID' should be exactly 10 digits..\n\n";
 		return;
 	}
 
 	// Birth Year Size üũ
 	if (birth.size() != 4) {
-		cout << "'Birth Year' should be exactly 4 digits..\n\n";
+		cout << "Error: 'Birth Year' should be exactly 4 digits..\n\n";
 		return;
 	}
 
 	// Tel Size üũ
 	if (tel.size() != 11) {
-		cout << "'Tel' should have up to 11 digits..\n\n";
+		cout << "Error: 'Tel' should have up to 11 digits..\n\n";
 		return;
 	}
 
@@ -67,6 +67,8 @@ void insertion() {
 		return;
 	}
 
+	Student newStudent(name, id, birth, dept, tel);
+	students.push_back(newStudent);
 
 	string studentInfoStr = name + "," + id + "," + birth + "," + dept + "," + tel + "\n";
 	ofstream writeFile;

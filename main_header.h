@@ -17,3 +17,4 @@ void printMenu();
 void insertion();
 void fileRead();
 void search();
+void sortingOption();
