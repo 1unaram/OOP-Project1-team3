@@ -59,19 +59,19 @@ void sorting(int num)
 
     switch(num) {
         case 1:
-            cout << "~ Result Sorting By Name ~" << endl;
+            cout << "~ Complete to Sort By Name ~" << endl;
             sort(students.begin(), students.end(), compare_name);
             break;
         case 2:
-            cout << "~ Result Sorting By Student ID ~" << endl;
+            cout << "~ Complete to Sort By Student ID ~" << endl;
             sort(students.begin(), students.end(), compare_studentID);
             break;
         case 3:
-            cout << "~ Result Sorting By Admission Year ~" << endl;
+            cout << "~ Complete to Sort By Admission Year ~" << endl;
             sort(students.begin(), students.end(), compare_admissionYear);
             break;
         case 4:
-            cout << "~ Result Sorting By Department Name ~" << endl;
+            cout << "~ Complete to Sort By Department Name ~" << endl;
             sort(students.begin(), students.end(), compare_departmentName);
             break;
     }
