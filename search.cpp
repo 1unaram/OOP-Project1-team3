@@ -1,14 +1,16 @@
-#include "search_header.h"
+/* search.cpp */
+
+#include "main_header.h"
 
 extern vector<Student> students;
 
 void search() {
-	int menu;
+	char menu;
 
 	cout << "[Search Mode]" << endl;
 	cout << "1. Search by name" << endl;
 	cout << "2. Search by student ID (10 numbers)" << endl;
-	cout << "3. Search by birth year (4 numbers)" << endl;
+	cout << "3. Search by Admission year (4 numbers)" << endl;
 	cout << "4. Search by department name" << endl;
 	cout << "5. List All" << endl;
 	cout << ">  ";
@@ -18,7 +20,7 @@ void search() {
 	cin.ignore();
 
 	switch (menu) {
-	case 1: {
+	case '1': {
 		string sName;
 		cout << "Name keyword ?  ";
 		getline(cin, sName);
@@ -26,7 +28,7 @@ void search() {
 		searchName(sName);
 		break;
 	}
-	case 2: {
+	case '2': {
 		string sId;
 		cout << "Id keyword ?  ";
 		getline(cin, sId);
@@ -34,15 +36,15 @@ void search() {
 		searchId(sId);
 		break;
 	}
-	case 3: {
+	case '3': {
 		string sYear;
-		cout << "Birth Year keyword ?  ";
+		cout << "Admission Year keyword ?  ";
 		getline(cin, sYear);
 		cout << endl;
-		searchBirthYear(sYear);
+		searchAdYear(sYear);
 		break;
 	}
-	case 4: {
+	case '4': {
 		string sDepName;
 		cout << "Department name keyword ?  ";
 		getline(cin, sDepName);
@@ -50,11 +52,11 @@ void search() {
 		searchDepName(sDepName);
 		break;
 	}
-	case 5:
+	case '5':
 		listAll();
 		break;
 	default:
-		cout << "Error: Wrong Menu..";
+		cout << "Error: Please enter the correct menu.." << endl;
 	}
 
 	cout << endl;
@@ -72,9 +74,9 @@ void searchName(string sName) {
 			isMatching = true;
 		}
 	}
-	if (!isMatching) 
+	if (!isMatching)
 		cout << "(No Results Exactly Matching)" << endl;
-	
+
 	cout << endl;
 
 	bool isContaining = false;
@@ -112,13 +114,13 @@ void searchId(string sId) {
 	Student().printContainer();
 }
 
-void searchBirthYear(string sYear) {
+void searchAdYear(string sYear) {
 
 	bool isMatching = false;
 	Student().printDefault();
 
 	for (Student s : students) {
-		if (s.getBirthYear() == sYear) {
+		if (s.getStudentID().substr(0, 4) == sYear) {
 			s.printStudentInfo();
 			isMatching = true;
 		}
@@ -157,8 +159,8 @@ void searchDepName(string sDepName) {
 				isContaining = true;
 			}
 	}
-	
-	if (!isContaining)	
+
+	if (!isContaining)
 		cout << "(No Result Containing Keywords)" << endl;
 
 	Student().printContainer();

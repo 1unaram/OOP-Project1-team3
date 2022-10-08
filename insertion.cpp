@@ -1,6 +1,6 @@
 /* insertion function */
 
-#include "insertion_header.h"
+#include "main_header.h"
 
 // variable forward declarations (외부 전역 변수 사용)
 extern vector<Student> students;
@@ -51,8 +51,8 @@ void insertion() {
 	}
 
 	// Tel Size 체크
-	if (tel.size() != 11) {
-		cout << "Error: 'Tel' should have up to 11 digits..\n\n";
+	if (tel.size() > 12) {
+		cout << "Error: 'Tel' should have up to 12 digits..\n\n";
 		return;
 	}
 

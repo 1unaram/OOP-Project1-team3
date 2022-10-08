@@ -1,6 +1,6 @@
 /* sortingOption.cpp */
 
-#include "sortingOption_header.h"
+#include "main_header.h"
 
 extern vector<Student> students;
 

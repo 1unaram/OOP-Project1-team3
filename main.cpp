@@ -6,7 +6,7 @@
 vector<Student> students;
 string filename;
 
-int main(int argc, char ** argv) {
+int main(int argc, char** argv) {
 
 	filename = argv[1];
 
@@ -21,7 +21,7 @@ void printMenu() {
 
 	while (true) {
 
-		int menu;
+		char menu;
 
 		cout << "[Main Menu]" << endl;
 		cout << "1. Insertion" << endl;
@@ -34,25 +34,30 @@ void printMenu() {
 		cout << endl;
 
 		switch (menu) {
-		case 1:
+		case '1':
 			insertion();
 			break;
-		case 2:
+		case '2':
 			search();
 			break;
-		case 3:
+		case '3':
 			sortingOption();
 			break;
-		case 4:
+		case '4':
 			cout << "** Exit the program **" << endl;
 			exit(0);
+			break;
+		default:
+			cout << "Error: Please enter the correct menu.." << endl << endl;
+
+			cin.ignore();
 		}
 	}
 }
 
 // txt 파일을 읽어 studnets 벡터에 push
 void fileRead() {
-	
+
 	fstream file;
 	file.open(filename, ios::in | ios::app);
 
@@ -87,8 +92,11 @@ void fileRead() {
 
 			students.push_back(newStudent);
 		}
-		
+
 		file.close();
+
+		// Set Default Sorting Option to "Sort By Name"
+		sort(students.begin(), students.end(), [](Student s1, Student s2) { return s1.getName() < s2.getName(); });
 	}
 	// Fail to open file
 	else {
@@ -96,4 +104,3 @@ void fileRead() {
 		exit(0);
 	}
 }
-
