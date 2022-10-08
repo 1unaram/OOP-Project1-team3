@@ -14,10 +14,10 @@ void search() {
 		char menu;
 
 		cout << "[Search Mode]" << endl;
-		cout << "1. Search by name" << endl;
-		cout << "2. Search by student ID (10 numbers)" << endl;
-		cout << "3. Search by Admission year (4 numbers)" << endl;
-		cout << "4. Search by department name" << endl;
+		cout << "1. Search By Name" << endl;
+		cout << "2. Search By Student ID (10 numbers)" << endl;
+		cout << "3. Search By Admission year (4 numbers)" << endl;
+		cout << "4. Search By Department Name" << endl;
 		cout << "5. List All" << endl;
 		cout << ">  ";
 
@@ -30,6 +30,7 @@ void search() {
 			string sName;
 			cout << "Name keyword ?  ";
 			getline(cin, sName);
+			cout << endl;
 			searchName(sName);
 			return;
 		}
@@ -37,6 +38,7 @@ void search() {
 			string sId;
 			cout << "Id keyword ?  ";
 			getline(cin, sId);
+			cout << endl;
 			searchId(sId);
 			return;
 		}
@@ -44,6 +46,7 @@ void search() {
 			string sYear;
 			cout << "Admission Year keyword ?  ";
 			getline(cin, sYear);
+			cout << endl;
 			searchAdYear(sYear);
 			return;
 		}
@@ -51,6 +54,7 @@ void search() {
 			string sDepName;
 			cout << "Department name keyword ?  ";
 			getline(cin, sDepName);
+			cout << endl;
 			searchDepName(sDepName);
 			return;
 		}
