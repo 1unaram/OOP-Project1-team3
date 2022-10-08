@@ -25,15 +25,16 @@ void sortingOption();
 bool checkStudentID(string);
 
 // search_header
-void searchName(string name);
-void searchId(string sId);
-void searchAdYear(string sYear);
-void searchDepName(string sDepName);
+void searchName(string);
+void searchId(string);
+void searchAdYear(string);
+void searchDepName(string);
 void listAll();
 
 // sorting_header
-void sorting(int num);
-bool compare_name(Student s1, Student s2);
-bool compare_studentID(Student s1, Student s2);
-bool compare_admissionYear(Student s1, Student s2);
-bool compare_departmentName(Student s1, Student s2);
+void sorting();
+bool compare_name(Student, Student);
+bool compare_studentID(Student, Student);
+bool compare_admissionYear(Student, Student);
+bool compare_departmentName(Student, Student);
+string getOption();

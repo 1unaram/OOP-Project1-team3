@@ -3,8 +3,8 @@
 #include "main_header.h"
 
 // variable forward declarations (외부 전역 변수 사용)
-extern vector<Student> students;
-extern string filename;
+extern vector<Student> _students;
+extern string _filename;
 
 void insertion() {
 
@@ -68,11 +68,11 @@ void insertion() {
 	}
 
 	Student newStudent(name, id, birth, dept, tel);
-	students.push_back(newStudent);
+	_students.push_back(newStudent);
 
 	string studentInfoStr = name + "," + id + "," + birth + "," + dept + "," + tel + "\n";
 	ofstream writeFile;
-	writeFile.open(filename, ios::in | ios::app);
+	writeFile.open(_filename, ios::in | ios::app);
 
 	if (writeFile.is_open()) {
 		writeFile.write(studentInfoStr.c_str(), studentInfoStr.size());
@@ -88,7 +88,7 @@ bool checkStudentID(string id) {
 	// Input으로 들어온 Student ID가 기존 시스템에 존재하는지 체크
 	// true: 시스템에 존재하지 않음 & false: 시스템에 존재함
 
-	for (Student s : students) {
+	for (Student s : _students) {
 		if (!id.compare(s.getStudentID())) {
 			return false;
 		}

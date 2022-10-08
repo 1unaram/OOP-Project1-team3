@@ -3,12 +3,13 @@
 #include "main_header.h"
 
 // Global variable
-vector<Student> students;
-string filename;
+vector<Student> _students;
+string _filename;
+int _sortingOption = 1;
 
 int main(int argc, char** argv) {
 
-	filename = argv[1];
+	_filename = argv[1];
 
 	fileRead();
 
@@ -26,7 +27,7 @@ void printMenu() {
 		cout << "[Main Menu]" << endl;
 		cout << "1. Insertion" << endl;
 		cout << "2. Search" << endl;
-		cout << "3. Sorting Option" << endl;
+		cout << "3. Sorting Option" << "(Setting: " + getOption() + ")" << endl;
 		cout << "4. Exit" << endl;
 		cout << ">  ";
 
@@ -59,7 +60,7 @@ void printMenu() {
 void fileRead() {
 
 	fstream file;
-	file.open(filename, ios::in | ios::app);
+	file.open(_filename, ios::in | ios::app);
 
 	// Success to open file
 	if (file.is_open()) {
@@ -90,13 +91,13 @@ void fileRead() {
 			string end(name);
 			if (end.size() == 0) break;
 
-			students.push_back(newStudent);
+			_students.push_back(newStudent);
 		}
 
 		file.close();
 
 		// Set Default Sorting Option to "Sort By Name"
-		sort(students.begin(), students.end(), [](Student s1, Student s2) { return s1.getName() < s2.getName(); });
+		sort(_students.begin(), _students.end(), [](Student s1, Student s2) { return s1.getName() < s2.getName(); });
 	}
 	// Fail to open file
 	else {
