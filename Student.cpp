@@ -38,7 +38,7 @@ void Student::printStudentInfo() {
 }
 
 void Student::printContainer() {
-	for (int i = 0; i < NAME_SIZE + STUDENT_ID_SIZE + DEPT_SIZE + BIRTH_SIZE + TEL_SIZE + 15; i++) {
+	for (int i = 0; i < NAME_SIZE + STUDENT_ID_SIZE + DEPT_SIZE + BIRTH_SIZE + TEL_SIZE + 16; i++) {
 		cout << "-";
 	}
 	cout << endl;

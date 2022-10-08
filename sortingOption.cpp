@@ -12,10 +12,10 @@ void sortingOption()
         char menu;
 
         cout << "[Sorting Option]" << endl;
-        cout << "1. Sort by Name" << endl;
-        cout << "2. Sort by Student ID" << endl;
-        cout << "3. Sort by Admission Year" << endl;
-        cout << "4. Sort by Department name" << endl;
+        cout << "1. Sort By Name" << endl;
+        cout << "2. Sort By Student ID" << endl;
+        cout << "3. Sort By Admission Year" << endl;
+        cout << "4. Sort By Department Name" << endl;
         cout << "> ";
 
         cin >> menu;
