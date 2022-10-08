@@ -8,7 +8,7 @@
 
 <br>
 
-🔽 example.txt
+🔽 Student_Information.txt
   ```
   YeoJin Kim,20216645,2002,Computer Engineering,01011111111
   Haram Kim,20214234,2001,Economics,01022222222
