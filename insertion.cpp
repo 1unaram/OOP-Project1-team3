@@ -8,79 +8,84 @@ extern string _filename;
 
 void insertion() {
 
-	cout << "[Insert Mode]" << endl;
 	cin.ignore();
 
-	// Input Student info from user
-	string name;
-	cout << "Name ? ";
-	getline(cin, name);
+	while (true) {
 
-	string id;
-	cout << "Studnet ID(10 digits) ? ";
-	getline(cin, id);
+		cout << "[Insert Mode]" << endl;
+		
+		// Input Student info from user
+		string name;
+		cout << "Name ? ";
+		getline(cin, name);
 
-	string birth;
-	cout << "Birth Year (4 digits) ? ";
-	getline(cin, birth);
+		string id;
+		cout << "Studnet ID(10 digits) ? ";
+		getline(cin, id);
 
-	string dept;
-	cout << "Department ?: ";
-	getline(cin, dept);
+		string birth;
+		cout << "Birth Year (4 digits) ? ";
+		getline(cin, birth);
 
-	string tel;
-	cout << "Tel ? ";
-	getline(cin, tel);
+		string dept;
+		cout << "Department ?: ";
+		getline(cin, dept);
 
-	// Name Size 체크
-	if (name.size() > 15) {
-		cout << "Error: 'Name' should have up to 15 (English) characters..\n\n";
+		string tel;
+		cout << "Tel ? ";
+		getline(cin, tel);
+
+		// Name Size 체크
+		if (name.size() > 15) {
+			cout << "\nError: 'Name' should have up to 15 (English) characters..\n\n";
+			continue;
+		}
+
+		// Student ID Size 체크
+		if (id.size() != 10) {
+			cout << "\nError: 'Student ID' should be exactly 10 digits..\n\n";
+			continue;
+		}
+
+		// Birth Year Size 체크
+		if (birth.size() != 4) {
+			cout << "\nError: 'Birth Year' should be exactly 4 digits..\n\n";
+			continue;
+		}
+
+		// Tel Size 체크
+		if (tel.size() > 12) {
+			cout << "\nError: 'Tel' should have up to 12 digits..\n\n";
+			continue;
+		}
+
+		// 공백 체크
+		if (name.size() == 0 || id.size() == 0) {
+			cout << "\nError: Name and Student ID should not be blank..\n\n";
+			continue;
+		}
+		// Student ID 중복 체크
+		if (!checkStudentID(id)) {
+			cout << "\nError: Already inserted..\n\n";
+			continue;
+		}
+
+		Student newStudent(name, id, birth, dept, tel);
+		_students.push_back(newStudent);
+
+		string studentInfoStr = name + "," + id + "," + birth + "," + dept + "," + tel + "\n";
+		ofstream writeFile;
+		writeFile.open(_filename, ios::in | ios::app);
+
+		if (writeFile.is_open()) {
+			writeFile.write(studentInfoStr.c_str(), studentInfoStr.size());
+			writeFile.close();
+			cout << "** Success to insert! **\n\n";
+		}
+		else {
+			cout << "Error: Fail to open file..\n\n";
+		}
 		return;
-	}
-
-	// Student ID Size 체크
-	if (id.size() != 10) {
-		cout << "Error: 'Student ID' should be exactly 10 digits..\n\n";
-		return;
-	}
-
-	// Birth Year Size 체크
-	if (birth.size() != 4) {
-		cout << "Error: 'Birth Year' should be exactly 4 digits..\n\n";
-		return;
-	}
-
-	// Tel Size 체크
-	if (tel.size() > 12) {
-		cout << "Error: 'Tel' should have up to 12 digits..\n\n";
-		return;
-	}
-
-	// 공백 체크
-	if (name.size() == 0 || id.size() == 0) {
-		cout << "Error: Name and Student ID should not be blank..\n\n";
-		return;
-	}
-	// Student ID 중복 체크
-	if (!checkStudentID(id)) {
-		cout << "Error: Already inserted..\n\n";
-		return;
-	}
-
-	Student newStudent(name, id, birth, dept, tel);
-	_students.push_back(newStudent);
-
-	string studentInfoStr = name + "," + id + "," + birth + "," + dept + "," + tel + "\n";
-	ofstream writeFile;
-	writeFile.open(_filename, ios::in | ios::app);
-
-	if (writeFile.is_open()) {
-		writeFile.write(studentInfoStr.c_str(), studentInfoStr.size());
-		writeFile.close();
-		cout << "** Success to insert! **\n\n";
-	}
-	else {
-		cout << "Error: Fail to open file..\n\n";
 	}
 }
 
