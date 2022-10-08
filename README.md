@@ -1,6 +1,6 @@
 # oop-project-team3
 
-## File 형식
+## Input File 형식
 
 학생 정보를 담고 있는 txt 파일 형식은 다음과 같음.
 

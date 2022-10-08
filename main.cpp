@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
 void printMenu() {
 
-	cout << "\n\n<< Student Information Management System - Team#3 >>\n\n";
+	cout << "\n<< Student Information Management System - Team#3 >>\n\n";
 
 	while (true) {
 
